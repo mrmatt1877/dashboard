@@ -10,13 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170123180035) do
+ActiveRecord::Schema.define(version: 20170123194653) do
 
   create_table "mrpjobs", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "runtimes", force: :cascade do |t|
+    t.time     "start_time"
+    t.time     "end_time"
+    t.date     "date"
+    t.integer  "Mrpjob_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["Mrpjob_id"], name: "index_runtimes_on_Mrpjob_id"
   end
 
 end

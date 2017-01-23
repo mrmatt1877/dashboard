@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :runtimes
   resources :mrpjobs
   root 'welcome#index'
 

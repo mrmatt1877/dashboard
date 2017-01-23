@@ -1,0 +1,1 @@
+json.array! @runtimes, partial: 'runtimes/runtime', as: :runtime
