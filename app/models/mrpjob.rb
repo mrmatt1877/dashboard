@@ -1,0 +1,2 @@
+class Mrpjob < ApplicationRecord
+end
