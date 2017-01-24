@@ -5,22 +5,29 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:Mrpjob_id) %></th>
       <th><%= model_class.human_attribute_name(:start_time) %></th>
       <th><%= model_class.human_attribute_name(:end_time) %></th>
       <th><%= model_class.human_attribute_name(:date) %></th>
-      <th><%= model_class.human_attribute_name(:Mrpjob_id) %></th>
+      <th>Completion Time</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @runtimes.each do |runtime| %>
       <tr>
-        <td><%= link_to runtime.id, runtime_path(runtime) %></td>
-        <td><% time = runtime.start_time %><%= time.strftime('%r') %></td>
-        <td><%= runtime.end_time %></td>
-        <td><%= runtime.date %></td>
-        <td><%= runtime.Mrpjob_id %></td>
+        <td><%= runtime.Mrpjob.name %></td>
+        <td><%= runtime.start_time.strftime('%R') %></td>
+        <td><%= runtime.end_time.strftime('%R') %></td>
+        <td><%= runtime.date.strftime('%D') %></td>
+        <td>
+          <% if (runtime.start_time > runtime.end_time) %>
+            <%= ((runtime.end_time - runtime.start_time)/60) + 1440 %>
+          <% else %>
+            <%= (runtime.end_time - runtime.start_time)/60 %>
+          <% end %>
+          min
+        </td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_runtime_path(runtime), :class => 'btn btn-default btn-xs' %>

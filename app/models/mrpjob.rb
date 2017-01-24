@@ -1,3 +1,3 @@
 class Mrpjob < ApplicationRecord
-    has_many :Runtime
+    has_many :runtimes
 end
