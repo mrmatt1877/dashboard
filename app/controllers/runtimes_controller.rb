@@ -5,6 +5,7 @@ class RuntimesController < ApplicationController
   # GET /runtimes.json
   def index
     @runtimes = Runtime.all
+    @sorting = @runtimes.order("date asc")
   end
 
   # GET /runtimes/1
@@ -20,6 +21,7 @@ class RuntimesController < ApplicationController
 
   # GET /runtimes/1/edit
   def edit
+    @mrpjobs = Mrpjob.all
   end
 
   # POST /runtimes

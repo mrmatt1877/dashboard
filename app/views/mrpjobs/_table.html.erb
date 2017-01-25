@@ -11,7 +11,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @mrpjob.runtimes.each do |runtime| %>
+        <% @sorting.each do |runtime| %>
           <tr>
             <td><%= runtime.Mrpjob.name %></td>
             <td><%= runtime.start_time.try(:strftime, '%R') %></td>

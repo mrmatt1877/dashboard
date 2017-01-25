@@ -10,6 +10,7 @@ class MrpjobsController < ApplicationController
   # GET /mrpjobs/1
   # GET /mrpjobs/1.json
   def show
+    @sorting = @mrpjob.runtimes.order("created_at DESC")
   end
 
   # GET /mrpjobs/new
