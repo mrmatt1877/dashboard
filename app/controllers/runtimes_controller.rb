@@ -15,6 +15,7 @@ class RuntimesController < ApplicationController
   # GET /runtimes/new
   def new
     @runtime = Runtime.new
+    @mrpjobs = Mrpjob.all
   end
 
   # GET /runtimes/1/edit
@@ -25,6 +26,7 @@ class RuntimesController < ApplicationController
   # POST /runtimes.json
   def create
     @runtime = Runtime.new(runtime_params)
+
 
     respond_to do |format|
       if @runtime.save

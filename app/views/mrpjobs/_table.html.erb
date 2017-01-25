@@ -1,0 +1,40 @@
+<%- model_class = Mrpjob -%>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><%= model_class.human_attribute_name(:Mrpjob_id) %></th>
+          <th><%= model_class.human_attribute_name(:start_time) %></th>
+          <th><%= model_class.human_attribute_name(:end_time) %></th>
+          <th><%= model_class.human_attribute_name(:date) %></th>
+          <th>Completion Time</th>
+          <th><%=t '.actions', :default => t("helpers.actions") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @mrpjob.runtimes.each do |runtime| %>
+          <tr>
+            <td><%= runtime.Mrpjob.name %></td>
+            <td><%= runtime.start_time.try(:strftime, '%R') %></td>
+            <td><%= runtime.end_time.try(:strftime, '%R') %></td>
+            <td><%= runtime.date.try(:strftime, '%D') %></td>
+            <td>
+              <% if (runtime.start_time > runtime.end_time) %>
+                <%= ((runtime.end_time - runtime.start_time)/60) + 1440 %>
+              <% else %>
+                <%= (runtime.end_time - runtime.start_time)/60 %>
+              <% end %>
+              min
+            </td>
+            <td>
+              <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                          edit_runtime_path(runtime), :class => 'btn btn-default btn-xs' %>
+              <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                          runtime_path(runtime),
+                          :method => :delete,
+                          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                          :class => 'btn btn-xs btn-danger' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
