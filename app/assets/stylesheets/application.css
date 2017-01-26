@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
-.table th {
+.table th, td {
     text-align: center;
+}
+
+.padding {
+    padding: 2%;
 }

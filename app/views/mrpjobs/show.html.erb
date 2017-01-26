@@ -6,6 +6,12 @@
     
     <div><h4>Description:</h4> <%= @mrpjob.description %></div>
     
+    <div class="padding">
+        <%= link_to 'new runtime',
+                new_runtime_path,
+                :class => 'btn btn-primary' %>
+    </div>
+    
     <%= render 'table' %>
     
     
