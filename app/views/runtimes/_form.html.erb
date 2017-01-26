@@ -14,41 +14,45 @@
       </div>
     </div>
   <% end %>
-
-  <div class="form-group">
-    <%= f.label :start_time, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :start_time, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:start_time) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :end_time, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :end_time, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:end_time) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :date, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :date, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:date) %>
-  </div>
+  <div class="col-sm-6 padding">
   
-   <div class="form-group">
-      <% @mrpjobs.each do |p| %>
-        <%= f.radio_button :Mrpjob_id, p.id %>
-        <%= f.label :Mrpjob_id, p.name %>
-      <% end %>
-  </div>
-  
-  <div class="form-group">
-    <div class="col-lg-offset-2 col-lg-10">
-      <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                runtimes_path, :class => 'btn btn-default' %>
+    <div class="form-group">
+      <%= f.label :start_time, :class => 'control-label col-lg-2' %>
+      <div class="col-lg-6">
+        <%= f.text_field :start_time, :class => 'form-control' %>
+      </div>
+      <%=f.error_span(:start_time) %>
+    </div>
+    <div class="form-group">
+      <%= f.label :end_time, :class => 'control-label col-lg-2' %>
+      <div class="col-lg-6">
+        <%= f.text_field :end_time, :class => 'form-control' %>
+      </div>
+      <%=f.error_span(:end_time) %>
+    </div>
+    <div class="form-group">
+      <%= f.label :date, :class => 'control-label col-lg-2' %>
+      <div class="col-lg-6">
+        <%= f.text_field :date, :class => 'form-control' %>
+      </div>
+      <%=f.error_span(:date) %>
+    </div>
+    
+     <div class="row">
+        <% @mrpjobs.each do |p| %>
+          <div class="col-sm-2 text-center">
+            <%= f.radio_button :Mrpjob_id, p.id %>
+            <%= f.label :Mrpjob_id, p.name %>
+          </div>
+        <% end %>
+    </div>
+    
+    <div class="form-group">
+      <div class="col-lg-offset-2 col-lg-10">
+        <%= f.submit nil, :class => 'btn btn-primary' %>
+        <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  runtimes_path, :class => 'btn btn-default' %>
+      </div>
     </div>
   </div>
 

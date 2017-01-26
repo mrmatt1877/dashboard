@@ -17,6 +17,7 @@ class RuntimesController < ApplicationController
   def new
     @runtime = Runtime.new
     @mrpjobs = Mrpjob.all
+    @runtimes = Array.new(Mrpjob.count)
   end
 
   # GET /runtimes/1/edit
