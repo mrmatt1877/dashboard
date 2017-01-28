@@ -15,3 +15,13 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+
+$(function() {
+  $("#multiSubmit").click( function() {
+    $('form').each(function(i, item) {
+      $(item).trigger('submit.rails');
+    });
+  });
+});
+
+

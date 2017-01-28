@@ -1,5 +1,6 @@
 class RuntimesController < ApplicationController
   before_action :set_runtime, only: [:show, :edit, :update, :destroy]
+  respond_to :json
 
   # GET /runtimes
   # GET /runtimes.json
@@ -33,7 +34,7 @@ class RuntimesController < ApplicationController
 
     respond_to do |format|
       if @runtime.save
-        format.html { redirect_to @runtime, notice: 'Runtime was successfully created.' }
+        format.html { redirect_to runtimes_path, notice: 'Runtime was successfully created.' }
         format.json { render :show, status: :created, location: @runtime }
       else
         format.html { render :new }
@@ -76,4 +77,5 @@ class RuntimesController < ApplicationController
     def runtime_params
       params.require(:runtime).permit(:start_time, :end_time, :date, :Mrpjob_id)
     end
+    
 end
