@@ -17,7 +17,7 @@ class RuntimesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create runtime" do
     assert_difference('Runtime.count') do
-      post runtimes_url, params: { runtime: { Mrpjob_id: @runtime.Mrpjob_id, date: @runtime.date, end_time: @runtime.end_time, start_time: @runtime.start_time } }
+      post runtimes_url, params: { runtime: { date: @runtime.date, end_time: @runtime.end_time, mrpjob_id: @runtime.mrpjob_id, start_time: @runtime.start_time } }
     end
 
     assert_redirected_to runtime_url(Runtime.last)
@@ -34,7 +34,7 @@ class RuntimesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update runtime" do
-    patch runtime_url(@runtime), params: { runtime: { Mrpjob_id: @runtime.Mrpjob_id, date: @runtime.date, end_time: @runtime.end_time, start_time: @runtime.start_time } }
+    patch runtime_url(@runtime), params: { runtime: { date: @runtime.date, end_time: @runtime.end_time, mrpjob_id: @runtime.mrpjob_id, start_time: @runtime.start_time } }
     assert_redirected_to runtime_url(@runtime)
   end
 

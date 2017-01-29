@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  start_time: 2017-01-23 19:46:53
-  end_time: 2017-01-23 19:46:53
-  date: 2017-01-23
-  Mrpjob: one
+  start_time: 2017-01-29 15:39:16
+  end_time: 2017-01-29 15:39:16
+  date: 2017-01-29
+  mrpjob: one
 
 two:
-  start_time: 2017-01-23 19:46:53
-  end_time: 2017-01-23 19:46:53
-  date: 2017-01-23
-  Mrpjob: two
+  start_time: 2017-01-29 15:39:16
+  end_time: 2017-01-29 15:39:16
+  date: 2017-01-29
+  mrpjob: two

@@ -1,0 +1,1 @@
+json.array! @mrpjobs, partial: 'mrpjobs/mrpjob', as: :mrpjob

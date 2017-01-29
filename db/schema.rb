@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170123194653) do
+ActiveRecord::Schema.define(version: 20170129153916) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "mrpjobs", force: :cascade do |t|
     t.string   "name"
@@ -23,10 +26,11 @@ ActiveRecord::Schema.define(version: 20170123194653) do
     t.time     "start_time"
     t.time     "end_time"
     t.date     "date"
-    t.integer  "Mrpjob_id"
+    t.integer  "mrpjob_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["Mrpjob_id"], name: "index_runtimes_on_Mrpjob_id"
+    t.index ["mrpjob_id"], name: "index_runtimes_on_mrpjob_id", using: :btree
   end
 
+  add_foreign_key "runtimes", "mrpjobs"
 end
