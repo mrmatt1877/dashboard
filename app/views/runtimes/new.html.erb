@@ -16,7 +16,7 @@
     </div>
 </div>
 <div class="col-lg-offset-2 col-lg-10">
-    <%= submit_tag (value = "Save Changes"), :class => 'btn btn-primary form', :id => 'multiSubmit' %>
+    <%= submit_tag (value = "Save Changes"), :data { turbolinks='false' }, :class => 'btn btn-primary form', :id => 'multiSubmit' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 runtimes_path, :class => 'btn btn-default' %>
 </div>

@@ -14,11 +14,16 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
+//= require d3
 //= require_tree .
-$(function() {
-  $("#multiSubmit").click( function() {
-    $('form').each(function(i, item) {
-      $(item).trigger('submit.rails');
+
+
+$(document).on('turbolinks:load', function() {
+  $(function() {
+    $("#multiSubmit").click( function() {
+      $('form').each(function(i, item) {
+        $(item).trigger('submit.rails');
+      });
     });
   });
-});
+})
