@@ -3,9 +3,11 @@ class GraphController < ApplicationController
   end
  
   def data
+    @mrpjob = Mrpjob.all
+    @runtimes = Runtime.all
     respond_to do |format|
       format.json {
-        render :json => [1,2,3,4,5]
+        render :json => @runtimes
       }
     end
   end
