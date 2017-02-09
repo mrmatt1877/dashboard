@@ -16,3 +16,8 @@
 table th, td {
     text-align:center;
 }
+
+#graph {
+    height: 800px;
+    width: 1600px;
+}

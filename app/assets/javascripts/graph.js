@@ -17,7 +17,7 @@ function draw(json_data) {
     
                 function InitChart() {
                     
-                    var width = 3000,
+                    var width = 900,
                         height = 600,
                         padding = 50;
                         
@@ -29,13 +29,13 @@ function draw(json_data) {
                             
                     // define the y scale  (vertical)
                     var yScale = d3.scale.linear()
-            	        .domain([0, 100])    // values between 0 and 100
+            	        .domain([10, 500])    // values between 0 and 100
             		.range([height - padding, padding]);   // map these to the chart height, less padding.  
                              //REMEMBER: y axis range has the bigger number first because the y value of zero is at the top of chart and increases as you go down.
             		    
                     // define the x scale (horizontal)
                     var mindate = new Date(2017,1,1),
-                        maxdate = new Date(2017,12,31);
+                        maxdate = new Date(2018,12,31);
                         
                     var xScale = d3.time.scale()
             	        .domain([mindate, maxdate])    // values between for month of january
