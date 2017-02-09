@@ -7,7 +7,7 @@ class GraphController < ApplicationController
     @runtimes = Runtime.all
     respond_to do |format|
       format.json {
-        render :json => @runtimes
+        render :json => @mrpjob.first.runtimes
       }
     end
   end
