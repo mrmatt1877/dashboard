@@ -18,6 +18,6 @@ table th, td {
 }
 
 #graph {
-    height: 800px;
-    width: 1600px;
+    height: 1000px;
+    width: 100%;
 }

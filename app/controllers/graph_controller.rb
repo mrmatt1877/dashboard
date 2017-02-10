@@ -7,10 +7,10 @@ class GraphController < ApplicationController
     @mrpjob = Mrpjob.all
     @runtimes = Runtime.all
     @array_of_times = []
-    @mrpjob.first.runtimes.each do |f|
+    @mrpjob.first.runtimes.order('date DESC').each do |f|
                             @start_time = f.start_time.strftime('%H:%M')
                             @end_time = f.end_time.strftime('%H:%M') 
-                            @date = f.date.strftime('%Y/%m/%d')
+                            @date= f.date.strftime('%Y/%m/%d')
                             
                             if (f.start_time > f.end_time)
                               @completion_time = ((f.end_time - f.start_time)/60).floor + 1440 
