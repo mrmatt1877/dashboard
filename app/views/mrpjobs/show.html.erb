@@ -11,9 +11,15 @@
   <dt><strong>Running Average:</strong></dt>
   <dd><%= @running_average %> min</dd>
   <dt><strong>Since:</strong></dt>
-  <dd><%= Time.now.to_date-45.days %></dd>
+  <dd><%= @time_to_sort %></dd>
 </dl>
 
+<%= form_tag(@mrpjob, method: "get") do %>
+  <%= label_tag(:amount, "Sort by:") %>
+  <%= text_field_tag(:amount) %>
+  <%= submit_tag("Sort") %>
+<% end %>
+<br >
 <%= render 'table' %>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

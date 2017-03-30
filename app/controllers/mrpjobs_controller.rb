@@ -10,10 +10,19 @@ class MrpjobsController < ApplicationController
   # GET /mrpjobs/1
   # GET /mrpjobs/1.json
   def show
+    @amount = params[:amount].to_f
+    
+    if @amount.nil? || @amount == 0
+      @time_to_sort = Time.now.to_date-45.days
+    else
+      @time_to_sort = Time.now.to_date-@amount.days  
+    end
+      
     @sorting = @mrpjob.runtimes.order("date DESC")
     @completion_time = []
     @mrpjob.runtimes.each do |runtime|
-      if (runtime.date > Time.now.to_date-45.days)
+      #if (runtime.date > Time.now.to_date-45.days)
+      if (runtime.date > @time_to_sort)
         if (runtime.start_time > runtime.end_time)
           @completion_time.push(((runtime.end_time - runtime.start_time)/60) + 1440)
         else
