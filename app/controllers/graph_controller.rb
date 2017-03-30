@@ -19,7 +19,7 @@ class GraphController < ApplicationController
                             end
                             
                             @array_of_times.push(completion_time: @completion_time, date: @date)
-                        end
+    end
     respond_to do |format|
       format.json {
         render :json => @array_of_times

@@ -11,6 +11,17 @@ class MrpjobsController < ApplicationController
   # GET /mrpjobs/1.json
   def show
     @sorting = @mrpjob.runtimes.order("date DESC")
+    @completion_time = []
+    @mrpjob.runtimes.each do |runtime|
+      if (runtime.date > Time.now.to_date-45.days)
+        if (runtime.start_time > runtime.end_time)
+          @completion_time.push(((runtime.end_time - runtime.start_time)/60) + 1440)
+        else
+          @completion_time.push((runtime.end_time - runtime.start_time)/60)
+        end
+      end
+    end
+    @running_average = @completion_time.sum / @completion_time.size.to_f
   end
 
   # GET /mrpjobs/new
@@ -72,4 +83,5 @@ class MrpjobsController < ApplicationController
     def mrpjob_params
       params.require(:mrpjob).permit(:name, :description)
     end
+    
 end

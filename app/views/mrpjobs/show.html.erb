@@ -8,6 +8,10 @@
   <dd><%= @mrpjob.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
   <dd><%= @mrpjob.description %></dd>
+  <dt><strong>Running Average:</strong></dt>
+  <dd><%= @running_average %> min</dd>
+  <dt><strong>Since:</strong></dt>
+  <dd><%= Time.now.to_date-45.days %></dd>
 </dl>
 
 <%= render 'table' %>
