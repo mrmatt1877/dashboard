@@ -5,13 +5,13 @@
 <div class="container">
     <div class="row">
         
-        <% @mrpjobs.each do |runtime| %>
-          <%= fields_for @runtime do |r| %>
-            <div class="col-sm-6 padding">
-              <%= render "form" %>
-            </div>
-          <% end %>
-           
+      <% @mrpjobs.each do |runtime| %>
+        <%= fields_for @runtime do |r| %>
+          <div class="col-sm-6 padding">
+            <%= render "form", :runtime => runtime %>
+          </div>
+        <% end %>
+        
       <% end %>
     </div>
 </div>

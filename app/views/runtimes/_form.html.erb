@@ -37,12 +37,13 @@
     <%=f.error_span(:date) %>
   </div>
   <div class="row">
-    <% @mrpjobs.each do |p| %>
+    <%#= runtime.id %>
+    <%# @mrpjobs.each do |p| %>
       <div class="col-sm-3 text-center">
-        <%= f.radio_button :mrpjob_id, p.id, :class => '' %>
-        <%= f.label :mrpjob_id, p.name, :class => '' %>
+        <%= f.text_field :mrpjob_id, value: runtime.id, :class => 'hide' %>
+        <%= f.label :mrpjob_id, runtime.name, :class => '' %>
       </div>
-    <% end %>
+    <%# end %>
   </div>
 
   <div class="form-group hide">

@@ -1,4 +1,16 @@
 <h1>Dashboard</h1>
 
-<p>Creating something new</p>
-
+<p>Welcome</p>
+<% @runtimes.each do |runtime|%>
+    <% if runtime.date == Time.now.to_date %>
+        <%= runtime.mrpjob.name %>
+        <%= runtime.start_time %>
+        <%= runtime.end_time %>
+        <% if (runtime.start_time > runtime.end_time) %>
+            <%= ((runtime.end_time - runtime.start_time)/60) + 1440 %>
+        <% else %>
+            <%= (runtime.end_time - runtime.start_time)/60 %>
+        <% end %>
+        <br>
+    <% end %>
+<% end %>
