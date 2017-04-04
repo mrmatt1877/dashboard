@@ -1,16 +1,30 @@
 <h1>Dashboard</h1>
 
 <p>Welcome</p>
-<% @runtimes.each do |runtime|%>
-    <% if runtime.date == Time.now.to_date %>
-        <%= runtime.mrpjob.name %>
-        <%= runtime.start_time %>
-        <%= runtime.end_time %>
-        <% if (runtime.start_time > runtime.end_time) %>
-            <%= ((runtime.end_time - runtime.start_time)/60) + 1440 %>
-        <% else %>
-            <%= (runtime.end_time - runtime.start_time)/60 %>
+<div class="row">
+    <% @runtimes.each do |runtime|%>
+        <% if runtime.date == Time.now.to_date %>
+            <div class="col-md-4 text-center today-card">
+                <div class="row">
+                    <%= runtime.mrpjob.name %>
+                </div>
+                <div class="row">
+                    Start-Time: 
+                    <%= runtime.start_time.try(:strftime, '%R') %>
+                     - End-Time: 
+                    <%= runtime.end_time.try(:strftime, '%R') %>
+                    
+                </div>
+                <div class="row">
+                    <% if (runtime.start_time > runtime.end_time) %>
+                        <%= ((runtime.end_time - runtime.start_time)/60) + 1440 %>
+                    <% else %>
+                        <%= (runtime.end_time - runtime.start_time)/60 %>
+                    <% end %>
+                </div>
+                
+                <br>
+            </div>  
         <% end %>
-        <br>
     <% end %>
-<% end %>
+</div>
