@@ -1,30 +1,63 @@
 <h1>Dashboard</h1>
-
+<%= @userdate %>
+<hr />
+<%= @runtimes.first.date %>
 <p>Welcome</p>
-<div class="row">
+
+<%= form_tag(root_path, method: "get") do %>
+  <%= label_tag(:date, "Which job do you want to graph?") %>
+  <%= select_date Date.today, prefix: :date %>
+  <%= submit_tag("Graph") %>
+<% end %>
+
+<div class="row center-row">
     <% @runtimes.each do |runtime|%>
-        <% if runtime.date == Time.now.to_date %>
+        <% if runtime.date == @userdate %>
             <div class="col-md-4 text-center today-card">
-                <div class="row">
-                    <%= runtime.mrpjob.name %>
+                <div class="row dash-name">
+                    <p class="homescreen-mrp-name"><%= runtime.mrpjob.name %></p>
+                    <p class="homescreen-mrp-description"><%= runtime.mrpjob.description %></p>
                 </div>
-                <div class="row">
-                    Start-Time: 
+                <hr />
+                <div class="row dash-start-end">
+                    <span class="bolder">Start-Time:</span>
                     <%= runtime.start_time.try(:strftime, '%R') %>
-                     - End-Time: 
+                     <span class="bolder">- End-Time:</span>
                     <%= runtime.end_time.try(:strftime, '%R') %>
-                    
                 </div>
-                <div class="row">
                     <% if (runtime.start_time > runtime.end_time) %>
-                        <%= ((runtime.end_time - runtime.start_time)/60) + 1440 %>
+                      <% @runtimewarnings.each do |warnings|%>
+                        <% if runtime.mrpjob.name == warnings[0] %>
+                          <% if (((runtime.end_time - runtime.start_time)/60) + 1440).round > warnings[1] + 60 %>
+                            <div class="row dash-complete red">
+                              <span class="homescreen-time "><%= (((runtime.end_time - runtime.start_time)/60) + 1440).round %></span>
+                          <% elsif (((runtime.end_time - runtime.start_time)/60) + 1440).round > warnings[1] + 30 %>
+                            <div class="row dash-complete yellow">
+                              <span class="homescreen-time "><%= (((runtime.end_time - runtime.start_time)/60) + 1440).round %></span>
+                          <% else %>
+                            <div class="row dash-complete green">
+                              <span class="homescreen-time "><%= (((runtime.end_time - runtime.start_time)/60) + 1440).round %></span>
+                          <% end %>
+                        <% end %>
+                      <% end %>
                     <% else %>
-                        <%= (runtime.end_time - runtime.start_time)/60 %>
+                      <% @runtimewarnings.each do |warnings|%>
+                        <% if runtime.mrpjob.name == warnings[0] %>
+                          <% if ((runtime.end_time - runtime.start_time)/60).round > warnings[1] + 60 %>
+                            <div class="row dash-complete red">
+                              <span class="homescreen-time "><%= ((runtime.end_time - runtime.start_time)/60).round %></span>
+                          <% elsif ((runtime.end_time - runtime.start_time)/60).round > warnings[1] + 30 %>
+                            <div class="row dash-complete yellow">
+                              <span class="homescreen-time "><%= ((runtime.end_time - runtime.start_time)/60).round %></span>
+                          <% else %>
+                            <div class="row dash-complete green">
+                              <span class="homescreen-time "><%= ((runtime.end_time - runtime.start_time)/60).round %></span>
+                          <% end %>
+                        <% end %>
+                      <% end %>
                     <% end %>
                 </div>
-                
-                <br>
-            </div>  
+            </div>
         <% end %>
     <% end %>
 </div>

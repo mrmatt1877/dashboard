@@ -13,8 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
 table th, td {
-    text-align:center;
+    text-align: center;
 }
 
 #graph {
@@ -23,5 +24,56 @@ table th, td {
 }
 
 .today-card {
-    padding: 5%;
+    max-width: 28vw;
+    height: auto;
+    padding: 0, 1vw, 0, 1vw;
+    margin: 10px 1vw 10px 1vw;
+    box-shadow: 0px 0px 5px #333;
+    align-items: center;
+    display: inline-block;
+    float: none;
+}
+.center-row {
+  text-align: center;
+}
+.dash-name {}
+
+.homescreen-mrp-name {
+    vertical-align: middle;
+    font-size: 5vh;
+    font-family: sans-serif;
+    font-weight: bolder;
+}
+
+.homescreen-mrp-description {
+  margin-bottom: -2vh;
+}
+
+.dash-start-end {
+    background-color: #efefef;
+    padding: 1vh;
+}
+.bolder {
+  font-weight: bold;
+}
+
+.dash-complete {
+    padding: 1vh;
+}
+
+.homescreen-time {
+  font-size: 2vh;
+  font-weight: 600;
+}
+
+.red {
+  background-color: #f85151;
+}
+
+.yellow {
+  background-color: #ffc861;
+}
+
+.green {
+  background-color: #cceecc;
 }

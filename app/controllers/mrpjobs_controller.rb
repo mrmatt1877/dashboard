@@ -11,13 +11,13 @@ class MrpjobsController < ApplicationController
   # GET /mrpjobs/1.json
   def show
     @amount = params[:amount].to_f
-    
+
     if @amount.nil? || @amount == 0
       @time_to_sort = Time.now.to_date-45.days
     else
-      @time_to_sort = Time.now.to_date-@amount.days  
+      @time_to_sort = Time.now.to_date-@amount.days
     end
-      
+
     @sorting = @mrpjob.runtimes.order("date DESC")
     @completion_time = []
     @mrpjob.runtimes.each do |runtime|
@@ -92,5 +92,5 @@ class MrpjobsController < ApplicationController
     def mrpjob_params
       params.require(:mrpjob).permit(:name, :description)
     end
-    
+
 end

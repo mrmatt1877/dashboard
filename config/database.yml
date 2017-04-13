@@ -9,13 +9,13 @@ development:
   encoding: SQL_ASCII
   database: store_development
   pool: 5
-  username: ubuntu
-  password: postgres
+  username: postgres
+  password: 6oebR!eP
 
 test:
   adapter: postgresql
   encoding: SQL_ASCII
   database: store_test
   pool: 5
-  username: ubuntu
-  password: postgres
+  username: postgres
+  password: 6oebR!eP

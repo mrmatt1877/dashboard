@@ -1,1 +1,18 @@
+<%= form_tag(graph_index_url, method: "get") do %>
+  <%= label_tag(:graph_id, "Which job do you want to graph?") %>
+  <%= select_tag(:graph_id, options_for_select([['Kilkeel', 2],
+                                            ['Nieuwegein', 1],
+                                            ['Lenexa', 0],
+                                            ['Leighton-Buzzard', 3],
+                                            ['Rockford', 4],
+                                            ['Tucson', 5],
+                                            ['Nogales', 6],
+                                            ['Anaheim', 7],
+                                            ['Tananuan', 8],
+                                            ['Commerce Center', 9]], 2)) %>
+  <%= submit_tag("Graph") %>
+<% end %>
+<hr />
+<h2><%= @mrpname %></h2>
+
 <svg id="graph"></svg>
