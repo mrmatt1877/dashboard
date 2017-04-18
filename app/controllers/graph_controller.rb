@@ -1,6 +1,10 @@
 class GraphController < ApplicationController
   def index
-    $graph_id = params[:graph_id].to_f
+    if params.has_key?(:graph_id)
+      $graph_id = params[:graph_id].to_i
+    else
+      $graph_id = 0
+    end
     @mrpjob = Mrpjob.all
     @mrpname = @mrpjob[$graph_id].description
   end

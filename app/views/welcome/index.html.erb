@@ -1,19 +1,21 @@
 <h1>Dashboard</h1>
-<%= @userdate %>
-<hr />
-<%= @runtimes.first.date %>
-<p>Welcome</p>
 
-<%= form_tag(root_path, method: "get") do %>
-  <%= label_tag(:date, "Which job do you want to graph?") %>
-  <%= select_date Date.today, prefix: :date %>
-  <%= submit_tag("Graph") %>
-<% end %>
+<hr />
+<div class="row">
+  <h3 class="col-lg-8">You are viewing the Dashboard for <strong><%= @searchdate %></strong></h3>
+  <%= form_tag(root_path, method: "get", class: "col-lg-4") do %>
+    <%= label_tag(:date, "Which job do you want to graph?") %>
+    <%= select_date Date.today, prefix: :date %>
+    <%= submit_tag("Graph") %>
+  <% end %>
+</div>
+
+<hr />
 
 <div class="row center-row">
     <% @runtimes.each do |runtime|%>
-        <% if runtime.date == @userdate %>
-            <div class="col-md-4 text-center today-card">
+        <% if runtime.date == @searchdate %>
+            <div class="col-lg-4 col-md-12 text-center today-card">
                 <div class="row dash-name">
                     <p class="homescreen-mrp-name"><%= runtime.mrpjob.name %></p>
                     <p class="homescreen-mrp-description"><%= runtime.mrpjob.description %></p>
