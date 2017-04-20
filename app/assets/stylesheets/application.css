@@ -78,3 +78,7 @@ table th, td {
 .green {
   background-color: #cceecc;
 }
+
+.runtime-form .form-control {
+  max-width: 16vw;
+}

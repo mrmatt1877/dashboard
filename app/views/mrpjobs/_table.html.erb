@@ -2,7 +2,6 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th><%= model_class.human_attribute_name(:id) %></th>
           <th><%= model_class.human_attribute_name(:start_time) %></th>
           <th><%= model_class.human_attribute_name(:end_time) %></th>
           <th><%= model_class.human_attribute_name(:date) %></th>
@@ -14,7 +13,6 @@
         <% @sorting.each do |runtime| %>
           <% if @amount.nil? || @amount == 0 %>
             <tr>
-              <td><%= Mrpjob.name %></td>
               <td><%= runtime.start_time.try(:strftime, '%R') %></td>
               <td><%= runtime.end_time.try(:strftime, '%R') %></td>
               <td><%= runtime.date.try(:strftime, '%D') %></td>
