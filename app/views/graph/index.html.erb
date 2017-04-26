@@ -1,14 +1,14 @@
 <%= form_tag(graph_index_url, method: "get") do %>
   <%= label_tag(:graph_id, "Which job do you want to graph?") %>
   <%= select_tag(:graph_id, options_for_select([['Lenexa', 0],
-                                            ['Nieuwegein', 1],
-                                            ['Kilkeel', 2],
-                                            ['Leighton-Buzzard', 3],
-                                            ['Rockford', 4],
-                                            ['Tucson', 5],
-                                            ['Nogales', 6],
-                                            ['Anaheim', 7],
-                                            ['Tananuan', 8],
+                                            ['Tananuan', 1],
+                                            ['Nieuwegein', 2],
+                                            ['Kilkeel', 3],
+                                            ['Leighton-Buzzard', 4],
+                                            ['Rockford', 5],
+                                            ['Tucson', 6],
+                                            ['Nogales', 7],
+                                            ['Anaheim', 8],
                                             ['Commerce Center', 9]], 2)) %>
   <%= submit_tag("Graph") %>
 <% end %>

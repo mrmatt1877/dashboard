@@ -30,7 +30,7 @@ class MrpjobsController < ApplicationController
         end
       end
     end
-    @running_average = @completion_time.sum / @completion_time.size.to_f
+    @running_average = (@completion_time.sum / @completion_time.size).round(2)
   end
 
   # GET /mrpjobs/new

@@ -21,6 +21,7 @@
 $(document).on('turbolinks:load', function() {
   $(function() {
     $("#multiSubmit").click( function() {
+      console.log("click")
       $('form').each(function(i, item) {
         $(item).trigger('submit.rails');
       });

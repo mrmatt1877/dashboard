@@ -25,7 +25,7 @@
 <%= link_to t('.back', :default => t("helpers.links.back")),
               mrpjobs_path, :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_mrpjob_path(@mrpjob), :class => 'btn btn-default' %>
+              edit_mrpjob_path(@mrpjob), :class => 'btn btn-default hide' %>
 <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               mrpjob_path(@mrpjob),
               :method => 'delete',

@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
     def index
-        @mrpjobs = Mrpjob.all
-        @runtimes = Runtime.all
+        @mrpjobs = Mrpjob.all.order("id")
+        @runtimes = Runtime.all.order("mrpjob_id")
 
         if params.has_key?(:date)
           @searchdate  = Date.parse params[:date].values.join("-")

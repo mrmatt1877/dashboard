@@ -13,7 +13,13 @@
  *= require_tree .
  *= require_self
  */
+.rc-orange {
+  color: #d7451a !important;
+}
 
+.rc-grey {
+  background-color: #d3d3d3;
+}
 table th, td {
     text-align: center;
 }

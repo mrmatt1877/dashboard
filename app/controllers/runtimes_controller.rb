@@ -1,4 +1,5 @@
 class RuntimesController < ApplicationController
+  skip_before_action :verify_authenticity_token, only:[:create]
   before_action :set_runtime, only: [:show, :edit, :update, :destroy]
 
   # GET /runtimes
@@ -35,7 +36,7 @@ class RuntimesController < ApplicationController
 
     respond_to do |format|
       if @runtime.save
-        format.html { redirect_to runtimes_path, notice: 'Runtime was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Runtime was successfully created.' }
         format.json { render :show, status: :created, location: @runtime }
       else
         format.html { render :new }
@@ -63,7 +64,7 @@ class RuntimesController < ApplicationController
   def destroy
     @runtime.destroy
     respond_to do |format|
-      format.html { redirect_to runtimes_url, notice: 'Runtime was successfully destroyed.' }
+      format.html { redirect_to mrpjobs_url, notice: 'Runtime was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
