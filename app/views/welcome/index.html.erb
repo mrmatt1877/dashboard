@@ -4,9 +4,9 @@
 <div class="row">
   <h3 class="col-lg-8">You are viewing the Dashboard for <strong><%= @searchdate %></strong></h3>
   <%= form_tag(root_path, method: "get", class: "col-lg-4") do %>
-    <%= label_tag(:date, "Which job do you want to graph?") %>
+    <%= label_tag(:date, "Which day do you want to view?") %>
     <%= select_date Date.today, prefix: :date %>
-    <%= submit_tag("Graph") %>
+    <%= submit_tag("Search") %>
   <% end %>
 </div>
 
