@@ -18,7 +18,7 @@ class RuntimesController < ApplicationController
   # GET /runtimes/new
   def new
     @runtime = Runtime.new
-    @mrpjobs = Mrpjob.all
+    @mrpjobs = Mrpjob.all.order("id ASC")
   end
 
   # GET /runtimes/1/edit
