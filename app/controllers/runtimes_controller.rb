@@ -6,13 +6,13 @@ class RuntimesController < ApplicationController
   # GET /runtimes.json
   def index
     @runtimes = Runtime.all.order("created_at DESC")
-    @mrpjobs = Mrpjob.all
+    @mrpjobs = Mrpjob.all.order('id ASC')
   end
 
   # GET /runtimes/1
   # GET /runtimes/1.json
   def show
-    @mrpjobs = Mrpjob.all
+    @mrpjobs = Mrpjob.all.order('id ASC')
   end
 
   # GET /runtimes/new
@@ -23,9 +23,7 @@ class RuntimesController < ApplicationController
 
   # GET /runtimes/1/edit
   def edit
-    @mrpjobs = Mrpjob.all
-    @runtime = Runtime.new
-    @mrpjobs = Mrpjob.all
+    @mrpjobs = Mrpjob.all.order('id ASC')
   end
 
   # POST /runtimes

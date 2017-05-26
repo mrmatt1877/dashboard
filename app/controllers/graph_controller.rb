@@ -5,12 +5,12 @@ class GraphController < ApplicationController
     else
       $graph_id = 0
     end
-    @mrpjob = Mrpjob.all
+    @mrpjob = Mrpjob.all.order('id ASC')
     @mrpname = @mrpjob[$graph_id].description
   end
 
   def data
-    @mrpjob = Mrpjob.all
+    @mrpjob = Mrpjob.all.order('id ASC')
     @runtimes = Runtime.all
     @array_of_times = []
     @mrpjob[$graph_id].runtimes.order('date DESC').each do |f|

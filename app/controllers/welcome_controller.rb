@@ -9,7 +9,7 @@ class WelcomeController < ApplicationController
           @searchdate = Time.now.to_date
         end
 
-        @runtimewarnings = [["D56TAMPS01", 104],["D56NMRP", 24],["D56KMRP", 110],["D56ZZMRP", 55],["D56XMRP", 55],["D56RMRP", 13],["D56TUMRP", 80],["D56NOMRP", 46],["D56AMRP", 37],["D56CCMRP", 12]]
+        @runtimewarnings = [["D56TAMPS01", 68],["D56NMRP", 31],["D56KMRP", 67],["D56ZZMRP", 123],["D56XMRP", 41],["D56RMRP", 8],["D56TUMRP", 26],["D56NOMRP", 25],["D56AMRP", 16],["D56CCMRP", 6]]
     end
 
 end
